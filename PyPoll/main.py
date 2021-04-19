@@ -63,10 +63,21 @@ with open(election_data) as csvfile:
     counter = [(i, candidates.count(i)) for i in set(candidates)]
 
     for i in counter:
-        name = i[0]
+        candidate_name = i[0]
         num_of_votes = i[1]
-        print(f'{name}: {vote_percentage(num_of_votes)} {formatted(num_of_votes)}')
+
+        print(f'{candidate_name}: {vote_percentage(num_of_votes)} {formatted(num_of_votes)}')
+
+    highest_votes = []
+    for j in counter:
+        highest_votes.append(j[1])
+        highest_votes.sort()
+        winner = [k for k in counter if k[1] == highest_votes[-1]]
+        name_winner = winner[0][0]
+        
+    # print(highest_votes)
+    # print(winner)
 
     print('-------------------------')
-    print('Winner: ')
+    print(f'Winner: {name_winner}')
     print('-------------------------')
