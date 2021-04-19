@@ -23,8 +23,14 @@ def formatted(number):
     format_number = "{:,}".format(number)
     return format_number
 
-def candidates_list(list1):
-    #Returns a list of the unique candidates
+def vote_percentage(nums):
+    #Calculates and formats percentage of vote
+    percent = nums/vote_count
+    percent = "{:.3%}".format(percent)
+    return percent
+
+def candidates_list(list1): #Function not needed for solution
+    #Returns a list of the unique candidates 
     each_candidate = []
     for i in list1:
         if i not in each_candidate:
@@ -37,24 +43,30 @@ with open(election_data) as csvfile:
 
     vote_count = 0
     candidates = []
-    dates = []
+    #voters = []
     for row in csvreader:
         vote_count += 1
         
         #Converting Candidate column into a list
         candidates.append(row[2])
 
-
     print('\nElection Results')
-    print(f'-------------------------')
+    print('-------------------------')
     print(f'Total Votes: {formatted(vote_count)}')
-    print(f'-------------------------')
+    print('-------------------------')
 
-    #Getting the names of candidates
+    #Getting the unique candidates (Not necessary)
     unique_candidates = candidates_list(candidates)
-    print(unique_candidates)
-    
-    
-        
+    # print(candidates.count(unique_candidates[0]))
 
+    #Creates a list of tuples for each unique occurrence
+    counter = [(i, candidates.count(i)) for i in set(candidates)]
 
+    for i in counter:
+        name = i[0]
+        num_of_votes = i[1]
+        print(f'{name}: {vote_percentage(num_of_votes)} {formatted(num_of_votes)}')
+
+    print('-------------------------')
+    print('Winner: ')
+    print('-------------------------')
