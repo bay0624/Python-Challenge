@@ -100,19 +100,3 @@ with open(budget_data) as csvfile:
     f.write(f'Greatest Decrease in Profits: {lowest_value_date} ({currency(lowest_value)})')
     
     f.close()
-
-    
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-
