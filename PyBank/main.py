@@ -56,6 +56,11 @@ with open(budget_data) as csvfile:
     #list comprehension that subtracts the current value from the next value 
     profit_diff = [j - i for i, j in zip(list_amount, list_amount[1:])]
 
+    # Same as list comprehension code above
+    # profit_diff = []
+    # for i, j in zip(list_amount, list_amount[1:]):
+    #     profit_diff.append(j - i)
+
     #Print Total number of months
     print(f'Total Months: {counts}')
 
