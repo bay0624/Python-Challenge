@@ -94,10 +94,12 @@ with open(budget_data) as csvfile:
     print(f'Greatest Decrease in Profits: {lowest_value_date} ({currency(lowest_value)})')
 
     #Export a text file with the results
-    path2 = "/Users/abayomi/GitHubs/Python-Challenge/PyBank/Analysis/"
-    file_name = 'analysis.txt'
-    complete_name = os.path.join(path2,file_name)
-
+    
+    # path2 = "/Users/abayomi/GitHubs/Python-Challenge/PyBank/Analysis/"
+    # file_name = 'analysis.txt'
+    # complete_name = os.path.join(path2,file_name)
+    
+    complete_name = os.path.join("Analysis","analysis.txt")
     f = open(complete_name, 'w')
     f.write('Financial Analysis\n----------------------\n')
     f.write(f'Total Months: {counts}\n')

@@ -98,9 +98,12 @@ with open(election_data) as csvfile:
     print('-------------------------')
 
     #Export a text file with the results
-    path2 = "/Users/abayomi/GitHubs/Python-Challenge/PyPoll/Analysis/"
-    file_name = 'analysis.txt'
-    complete_name = os.path.join(path2,file_name)
+    
+    # path2 = "/Users/abayomi/GitHubs/Python-Challenge/PyPoll/Analysis/"
+    # file_name = 'analysis.txt'
+    # complete_name = os.path.join(path2,file_name)
+
+    complete_name = os.path.join('Analysis','analysis.txt')
 
     f = open(complete_name, 'w')
     f.write('\nElection Results\n')
