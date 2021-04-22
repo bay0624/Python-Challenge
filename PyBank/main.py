@@ -15,8 +15,10 @@ Author: Abayomi Olujobi
 
 import os
 import csv
-path = "/Users/abayomi/GitHubs/Python-Challenge/PyBank/"
-budget_data = os.path.join(path,"Resources", "budget_data.csv")
+
+budget_data = os.path.join("Resources", "budget_data.csv")
+# path = "/Users/abayomi/GitHubs/Python-Challenge/PyBank/"
+# budget_data = os.path.join(path,"Resources", "budget_data.csv")
 
 def currency(amount):
     #Changes the amount to currency format

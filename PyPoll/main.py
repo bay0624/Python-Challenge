@@ -16,8 +16,9 @@ Author: Abayomi Olujobi
 import os
 import csv
 
-path = "/Users/abayomi/GitHubs/Python-Challenge/PyPoll/"
-election_data = os.path.join(path,"Resources", "election_data.csv")
+# path = "/Users/abayomi/GitHubs/Python-Challenge/PyPoll/"
+# election_data = os.path.join(path,"Resources", "election_data.csv")
+election_data = os.path.join("Resources", "election_data.csv")
 
 def formatted(number):
     #Formats large numbers for more readability
@@ -60,9 +61,14 @@ with open(election_data) as csvfile:
     # Getting the unique candidates (Not necessary)
     # unique_candidates = candidates_list(candidates)
 
-    #Creates a list of tuples for each unique occurrence
-    #Tuples will each have 2 elements: candidate name and number of votes
+    # Creates a list of tuples for each unique occurrence
+    # List Comprehension: Tuples will each have 2 elements (candidate name and number of votes)
     counter = [(i, candidates.count(i)) for i in set(candidates)]
+
+    # Traditional for-loop for the list comprehension above
+    # counter = []
+    # for i in set(candidates):
+    #     counter.append((i, candidates.count(i)))
 
     for i in counter:
         candidate_name = i[0]
@@ -75,9 +81,17 @@ with open(election_data) as csvfile:
     for j in counter:
         highest_votes.append(j[1])
         highest_votes.sort()
-        #List comprehension to check the highest number of votes in the counter list and to output its corresponding element  
-        winner = [k for k in counter if k[1] == highest_votes[-1]]
-        name_winner = winner[0][0]
+
+        # List comprehension to check the highest number of votes in the counter list and to output its corresponding element  
+        # winner = [k for k in counter if k[1] == highest_votes[-1]]
+
+        # Traditional for-loop below is the same as list comprehension above (name_winner will be winner[0][0]) instead
+        winner = []
+        for k in counter:
+            if k[1] == highest_votes[-1]:
+                winner.append(k[0])
+
+        name_winner = winner[0]
 
     print('-------------------------')
     print(f'Winner: {name_winner}')
